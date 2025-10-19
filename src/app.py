@@ -84,6 +84,52 @@ activities = {
 }
 
 
+# Additional activities requested
+activities.update({
+    # Sports - two more
+    "Basketball Club": {
+        "description": "Team practices, skills training and interschool matches",
+        "schedule": "Tuesdays and Thursdays, 4:30 PM - 6:00 PM",
+        "max_participants": 18,
+        "participants": ["sophia@mergington.edu"]
+    },
+    "Track and Field": {
+        "description": "Running, jumping and throwing events training",
+        "schedule": "Wednesdays and Saturdays, 6:00 AM - 7:30 AM",
+        "max_participants": 30,
+        "participants": []
+    },
+
+    # Artistic - two more
+    "Photography Club": {
+        "description": "Learn photography techniques and create exhibitions",
+        "schedule": "Mondays, 4:00 PM - 5:30 PM",
+        "max_participants": 20,
+        "participants": []
+    },
+    "Choir": {
+        "description": "Vocal training and performances at school events",
+        "schedule": "Thursdays, 4:30 PM - 6:00 PM",
+        "max_participants": 40,
+        "participants": ["isabella@mergington.edu"]
+    },
+
+    # Intellectual - two more
+    "Math Circle": {
+        "description": "Problem solving, math contests preparation and enrichment",
+        "schedule": "Wednesdays, 3:30 PM - 5:00 PM",
+        "max_participants": 25,
+        "participants": []
+    },
+    "Science Olympiad": {
+        "description": "Project-based science challenges and competition teams",
+        "schedule": "Fridays, 3:30 PM - 5:30 PM",
+        "max_participants": 22,
+        "participants": ["lucas@mergington.edu"]
+    }
+})
+
+
 
 @app.get("/")
 def root():

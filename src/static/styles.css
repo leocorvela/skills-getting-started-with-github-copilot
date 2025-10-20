@@ -142,3 +142,60 @@ footer {
   padding: 20px;
   color: #666;
 }
+
+.participants {
+  margin-top: 12px;
+}
+
+.participants-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #1a237e;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.participants-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+  display: block;
+}
+
+.participants-list li {
+  margin: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* small pill for email */
+.participant-badge {
+  display: inline-block;
+  background: linear-gradient(135deg,#e8f0fe,#ffffff);
+  border: 1px solid #cfe0ff;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  color: #0b47a1;
+  box-shadow: 0 1px 0 rgba(11,71,161,0.04);
+}
+
+/* helper when no participants */
+.participants-empty {
+  font-style: italic;
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+/* ensure cards keep consistent spacing on small screens */
+@media (max-width: 767px) {
+  .activity-card {
+    padding: 12px;
+  }
+}

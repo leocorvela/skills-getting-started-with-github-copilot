@@ -34,6 +34,43 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       </div>
     `;
+    // Attach click handler for delete buttons after rendering
+    // We'll add delete icons for each participant in the DOM
+    setTimeout(() => {
+      const participantsList = card.querySelector('.participants-list');
+      if (participantsList) {
+        Array.from(participantsList.querySelectorAll('li')).forEach(li => {
+          const badge = li.querySelector('.participant-badge');
+          const email = badge ? badge.textContent : null;
+          if (email) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'participant-delete';
+            btn.title = 'Unregister participant';
+            btn.innerHTML = '✖';
+            btn.addEventListener('click', async (ev) => {
+              ev.preventDefault();
+              // Confirm quick
+              if (!confirm(`Unregister ${email} from ${name}?`)) return;
+              try {
+                const url = `/activities/${encodeURIComponent(name)}/participants?email=${encodeURIComponent(email)}`;
+                const res = await fetch(url, { method: 'DELETE' });
+                if (!res.ok) {
+                  const e = await res.json().catch(() => ({}));
+                  throw new Error(e.detail || 'Failed to unregister');
+                }
+                const data = await res.json();
+                showMessage(data.message || 'Participant unregistered', 'success');
+                await loadActivities();
+              } catch (err) {
+                showMessage(err.message || 'Error unregistering', 'error');
+              }
+            });
+            li.appendChild(btn);
+          }
+        });
+      }
+    }, 0);
     return card;
   }
 
